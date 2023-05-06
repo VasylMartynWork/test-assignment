@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "BZ8R+CUCx4yzvdqYGjWRdzOaf6fyB+Ic8HCgIJ/bpFZX/foDcn8gA4Nt+zjYwEVufUDroq5q4bIdqN7L4iyg9w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\User\\Desktop\\TestAssignment\\test-assignment\\TestAssignment\\TestAssignment.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
