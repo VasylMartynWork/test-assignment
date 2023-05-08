@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TestAssignment
 {
-    public class CoinCapResponse
+    public class CoinCapAssetsResponse
     {
-        public List<Coin> Data { get; set; }
+        public List<Currency> Data { get; set; }
     }
 }

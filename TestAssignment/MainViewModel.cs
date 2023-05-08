@@ -9,30 +9,34 @@ namespace TestAssignment
     public class MainViewModel : INotifyPropertyChanged
     {
         private readonly HttpClient client = new HttpClient();
-        private List<Coin> coins;
+        private List<Currency> currencies;
 
         public MainViewModel()
         {
-            LoadData();
+            LoadAndOutputData();
         }
 
-        public List<Coin> Coins
+        public List<Currency> Currencies
         {
-            get => coins;
+            get => currencies;
             set
             {
-                coins = value;
-                OnPropertyChanged("Coins");
+                currencies = value;
+                OnPropertyChanged("Currencies");
             }
         }
 
-        private async void LoadData()
+        private async void LoadAndOutputData()
         {
-            var response = await client.GetAsync("https://api.coincap.io/v2/assets?limit=10");
-            var coinsJson = await response.Content.ReadAsStringAsync();
-            var coinCapResponse = JsonConvert.DeserializeObject<CoinCapResponse>(coinsJson);
+            var currenciesResponse = await client.GetAsync("https://api.coincap.io/v2/assets?limit=10");
+            var currenciesJson = await currenciesResponse.Content.ReadAsStringAsync();
+            var currenciesFromJson = JsonConvert.DeserializeObject<CoinCapAssetsResponse>(currenciesJson);
 
-            Coins = result.Data;
+            var marketsResponse = await client.GetAsync("https://api.coincap.io/v2/markets");
+            var marketsJson = await marketsResponse.Content.ReadAsStringAsync();
+            var marketsFromJson = JsonConvert.DeserializeObject<CoinCapMarketsResponse>(marketsJson);
+
+            Currencies = currenciesFromJson.Data;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
