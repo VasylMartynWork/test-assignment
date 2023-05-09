@@ -4,8 +4,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
-using System.Windows;
-using System.Windows.Input;
 
 namespace TestAssignment
 {
@@ -22,13 +20,8 @@ namespace TestAssignment
             {
                 CurrencyInformationWindow currencyInformationWindow = new CurrencyInformationWindow();
                 currencyInformationWindow.Show();
-                App.Current.MainWindow.Close();
+                App.Current.Windows.OfType<MainWindow>().First().Close();
             });
-            //switchWindowCommand = new ICommand()
-            //{
-            //    CurrencyInformationWindow window = new CurrencyInformationWindow();
-            //window.Show();
-            //}
         }
 
         public List<Currency> Currencies

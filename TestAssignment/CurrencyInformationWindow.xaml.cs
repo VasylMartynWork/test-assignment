@@ -22,6 +22,8 @@ namespace TestAssignment
         public CurrencyInformationWindow()
         {
             InitializeComponent();
+
+            DataContext = new CurrencyInformationViewModel();
         }
     }
 }

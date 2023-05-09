@@ -20,7 +20,7 @@ namespace TestAssignment
         private double? marketCapUsd;
         private double? volumeUsd24Hr;
         private double? priceUsd;
-        private double? changePercent24H;
+        private double? changePercent24Hr;
         private List<Market> markets = new List<Market>();
 
         public string Id
@@ -68,98 +68,16 @@ namespace TestAssignment
             get { return priceUsd; }
             set { priceUsd = value; }
         }
-        public double? ChangePercent24H
+        public double? ChangePercent24Hr
         {
-            get { return changePercent24H; }
-            set { changePercent24H = value; }
+            get { return changePercent24Hr; }
+            set { changePercent24Hr = value; }
         }
         public List<Market> Markets
         {
             get { return markets; }
             set { markets = value; }
         }
-
-        //public string Id
-        //{
-        //    get { return id; }
-        //    set
-        //    {
-        //        id = value;
-        //        OnPropertyChanged("Id");
-        //    }
-        //}
-        //public string Symbol
-        //{
-        //    get { return Symbol; }
-        //    set
-        //    {
-        //        symbol = value;
-        //        OnPropertyChanged("Symbol");
-        //    }
-        //}
-        //public string Name
-        //{
-        //    get { return name; }
-        //    set
-        //    {
-        //        name = value;
-        //        OnPropertyChanged("Name");
-        //    }
-        //}
-        //public string Supply
-        //{
-        //    get { return supply; }
-        //    set
-        //    {
-        //        supply = value;
-        //        OnPropertyChanged("Supply");
-        //    }
-        //}
-        //public string MaxSupply
-        //{
-        //    get { return maxSupply; }
-        //    set
-        //    {
-        //        maxSupply = value;
-        //        OnPropertyChanged("MaxSupply");
-        //    }
-        //}
-        //public string MarketCapUsd
-        //{
-        //    get { return marketCapUsd; }
-        //    set
-        //    {
-        //        marketCapUsd = value;
-        //        OnPropertyChanged("MarketCapUsd");
-        //    }
-        //}
-        //public string VolumeUsd24Hr
-        //{
-        //    get { return volumeUsd24Hr; }
-        //    set
-        //    {
-        //        volumeUsd24Hr = value;
-        //        OnPropertyChanged("VolumeUsd24Hr");
-        //    }
-        //}
-        //public string PriceUsd
-        //{
-        //    get { return priceUsd; }
-        //    set
-        //    {
-        //        priceUsd = value;
-        //        OnPropertyChanged("PriceUsd");
-        //    }
-        //}
-        //public string ChangePercent24H
-        //{
-        //    get { return changePercent24H; }
-        //    set
-        //    {
-        //        changePercent24H = value;
-        //        OnPropertyChanged("changePercent24H");
-        //    }
-        //}
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
