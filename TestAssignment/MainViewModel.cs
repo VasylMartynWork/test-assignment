@@ -1,8 +1,11 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
+using System.Windows;
+using System.Windows.Input;
 
 namespace TestAssignment
 {
@@ -10,10 +13,22 @@ namespace TestAssignment
     {
         private readonly HttpClient client = new HttpClient();
         private List<Currency> currencies;
+        public RelayCommand switchWindowCommand { get; set; }
 
         public MainViewModel()
         {
             LoadAndOutputData();
+            switchWindowCommand = new RelayCommand(obj =>
+            {
+                CurrencyInformationWindow currencyInformationWindow = new CurrencyInformationWindow();
+                currencyInformationWindow.Show();
+                App.Current.MainWindow.Close();
+            });
+            //switchWindowCommand = new ICommand()
+            //{
+            //    CurrencyInformationWindow window = new CurrencyInformationWindow();
+            //window.Show();
+            //}
         }
 
         public List<Currency> Currencies
@@ -31,10 +46,6 @@ namespace TestAssignment
             var currenciesResponse = await client.GetAsync("https://api.coincap.io/v2/assets?limit=10");
             var currenciesJson = await currenciesResponse.Content.ReadAsStringAsync();
             var currenciesFromJson = JsonConvert.DeserializeObject<CoinCapAssetsResponse>(currenciesJson);
-
-            var marketsResponse = await client.GetAsync("https://api.coincap.io/v2/markets");
-            var marketsJson = await marketsResponse.Content.ReadAsStringAsync();
-            var marketsFromJson = JsonConvert.DeserializeObject<CoinCapMarketsResponse>(marketsJson);
 
             Currencies = currenciesFromJson.Data;
         }

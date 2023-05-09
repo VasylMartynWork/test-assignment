@@ -8,6 +8,6 @@ namespace TestAssignment
 {
     public class CoinCapMarketsResponse
     {
-        public List<Market> markets { get; set; }
+        public List<Market> data { get; set; }
     }
 }

@@ -9,13 +9,19 @@ namespace TestAssignment
     public class Market
     {
         private string exchangeId;
-        private float priceUsd;
+        private string baseSymbol;
+        private float? priceUsd;
         public string ExchangeId
         {
             get { return exchangeId; }
             set { exchangeId = value; }
         }
-        public float PriceUsd
+        public string BaseSymbol
+        {
+            get { return baseSymbol; }
+            set { baseSymbol = value; }
+        }
+        public float? PriceUsd
         {
             get { return priceUsd; }
             set { priceUsd = value; }

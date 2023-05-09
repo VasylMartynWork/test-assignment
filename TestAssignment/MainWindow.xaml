@@ -5,11 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestAssignment" 
         mc:Ignorable="d"
-        Title="MainWindow" 
+        Title="Top 10 currencies" 
         Height="450" 
         Width="800">
     <Grid>
-        <ListView ItemsSource="{Binding Currencies}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Button Content="Next" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center" 
+                Height="20" 
+                Width="40" 
+                Margin="10,0,0,0"
+                Command="{Binding switchWindowCommand}"/>
+        <ListView Grid.Row="1" ItemsSource="{Binding Currencies}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Rank" DisplayMemberBinding="{Binding Rank}" />

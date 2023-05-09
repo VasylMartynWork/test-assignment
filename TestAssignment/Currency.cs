@@ -21,7 +21,7 @@ namespace TestAssignment
         private double? volumeUsd24Hr;
         private double? priceUsd;
         private double? changePercent24H;
-        private List<Market>? markets;
+        private List<Market> markets = new List<Market>();
 
         public string Id
         {

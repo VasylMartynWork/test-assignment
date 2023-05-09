@@ -55,6 +55,7 @@ namespace TestAssignment
                 OnPropertyChanged("FoundCurrencies");
             }
         }
+        public RelayCommand searchCurrencies { get; set; }
 
         public async Task GetCurrenciesAsync()
         {
@@ -64,9 +65,13 @@ namespace TestAssignment
                 var currenciesJson = await assetsResponse.Content.ReadAsStringAsync();
                 var currenciesFromJson = JsonConvert.DeserializeObject<CoinCapAssetsResponse>(currenciesJson);
 
-                var marketsResponse = await client.GetAsync("https://api.coincap.io/v2/markets");
+                var marketsResponse = await client.GetAsync("https://api.coincap.io/v2/markets?limit=200");
                 var marketsJson = await marketsResponse.Content.ReadAsStringAsync();
                 var marketsFromJson = JsonConvert.DeserializeObject<CoinCapMarketsResponse>(marketsJson);
+
+                currenciesFromJson.Data.ForEach(currency =>
+                { currency.Markets.AddRange(marketsFromJson.data.Where(market => market.BaseSymbol == currency.Symbol).ToList()); });
+
 
                 Currencies = currenciesFromJson.Data;
 
